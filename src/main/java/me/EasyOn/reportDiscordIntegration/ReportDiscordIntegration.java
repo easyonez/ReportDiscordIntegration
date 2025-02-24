@@ -16,18 +16,18 @@ public final class ReportDiscordIntegration extends JavaPlugin {
         return prefix;
     }
     public void setItEnabledFlag(boolean itEnabledFlag) {
-        isItEnabledFlag = itEnabledFlag;
+        this.isItEnabledFlag = itEnabledFlag;
         getConfig().options().copyDefaults();
         saveDefaultConfig();
-        setItEnabledFlag(getConfig().getBoolean("PluginEnabled"));
-        Objects.requireNonNull(getCommand("flag")).setExecutor(new FlagCommand(this));   //Registers flag command
-        Objects.requireNonNull(getCommand("setmessage")).setExecutor(new ReportCommand(this));   //Registers setmessage command
-
     }
 
     @Override
     public void onEnable() {
-
+        getConfig().options().copyDefaults();
+        saveDefaultConfig();
+        setItEnabledFlag(getConfig().getBoolean("PluginEnabled"));
+        Objects.requireNonNull(getCommand("flag-rdi")).setExecutor(new FlagCommand(this));   //Registers flag-rdi command
+        Objects.requireNonNull(getCommand("report")).setExecutor(new ReportCommand(this));   //Registers report command
     }
 
     @Override

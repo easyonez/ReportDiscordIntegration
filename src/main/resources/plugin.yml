@@ -2,3 +2,9 @@ name: ReportDiscordIntegration
 version: '1.0-SNAPSHOT'
 main: me.EasyOn.reportDiscordIntegration.ReportDiscordIntegration
 api-version: '1.21'
+commands:
+  flag-rdi:
+    permission: rdi.flag
+  report:
+    permission: rdi.report.send
+    permission-message: "You don't have permission"
